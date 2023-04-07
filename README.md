@@ -1,31 +1,46 @@
 
 <h1><br>Introduction to Curve Fitting<br></h1>
 <h2>• EE 399 • SP 23 • Ting Jones</h2>
-<h3>Abstract</h3>
-<p>The first assignment for EE 399, Introduction to Machine Learning for Science and Engineering, involves fitting various models onto the given raw data. Models are optimized through minimizing the least-squares error:</p>
 
-<img src="https://media.discordapp.net/attachments/847715688273281034/1093792980327989268/image.png" alt="Least-Squares Error Equation">
+## Abstract
+The first assignment for EE 399, Introduction to Machine Learning for Science and Engineering, involves fitting various models onto the given raw data. Models are optimized through minimizing the least-squares error:
 
->Fig. 1. Least-Squares Error Equation
-<p>Functions include the cosine wave, a line, a parabola, and a 19th degree polynomial, which include parameters that are minimized on the training data to attempt to model the test data. See <a href="#Computational Results">Computational Results</a> for the outcome.</p>
+![image](https://user-images.githubusercontent.com/114551272/230678046-6a0682ff-4d52-4754-8a12-ee6c3f4e46ee.png)
+
+> Fig. 1. Least-Squares Error Equation
+Functions include the cosine wave, a line, a parabola, and a 19th degree polynomial, which include parameters that are minimized on the training data to attempt to model the test data. See <a href="##Computational Results">Computational Results</a> for the outcome.
 
 <h3>Table of Contents</h3>
-<p> •&emsp;<a href="#Introduction and Overview">Introduction and Overview</a></p>
-<p> •&emsp;<a href="#Theoretical Background">Theoretical Background</a></p>
-<p> •&emsp;<a href="#Algorithm Implementation and Development">Algorithm Implementation and Development</a></p>
-<p> •&emsp;<a href="#Computational Results">Computational Results</a></p>
-<p> •&emsp;<a href="#Summary and Conclusions">Summary and Conclusions</a></p>
+<p> •&emsp;<a href="##Introduction and Overview">Introduction and Overview</a></p>
+<p> •&emsp;<a href="##Theoretical Background">Theoretical Background</a></p>
+<p> •&emsp;<a href="##Algorithm Implementation and Development">Algorithm Implementation and Development</a></p>
+<p> &emsp;•&emsp;<a href="###Problem 1">Problem 1</a><br>
+&emsp;•&emsp;<a href="###Problem 1">Problem 2</a><br>
+&emsp;•&emsp;<a href="###Problem 1">Problem 3</a><br>
+  &emsp;•&emsp;<a href="###Problem 1">Problem 4</a></p>
+<p>•&emsp;<a href="##Computational Results">Computational Results</a></p>
+<p> &emsp;•&emsp;<a href="###Problem 1-1">Problem 1</a><br>
+&emsp;•&emsp;<a href="###Problem 2-1">Problem 2</a><br>
+&emsp;•&emsp;<a href="###Problem 3-1">Problem 3</a><br>
+&emsp;•&emsp;<a href="###Problem 4-1">Problem 4</a></p>
+<p>•&emsp;<a href="##Summary and Conclusions">Summary and Conclusions</a></p>
 
 ## Introduction and Overview
 To attempt describing any given data, a model is built on trained data by minimizing the difference, or error, between the model and the training data. After training, the model is implemented on the test dataset to see if it can closely predict the values for the given data. Results are dependent on the size of the dataset, the initial prediction of the value of the optimal parameters for the model, and other factors.
-In this assignment, the models were optimized through minimizing the least-squares error (Fig. 1).</p>
-<p>Models were made from the functions for the cosine wave, a line, a parabola, and a 19th degree polynomial. Each term had a coefficient, or parameter, that was calculated to give the least-squares error for the training data.
+
+In this assignment, the models were optimized through minimizing the least-squares error (Fig. 1).
+
+Models were made from the functions for the cosine wave, a line, a parabola, and a 19th degree polynomial. Each term had a coefficient, or parameter, that was calculated to give the least-squares error for the training data.
 
 ## Theoretical Background
+The Least-Squares fitting method uses a function to describe a trend by minimizing the sum-square error between the objective function and the data. The model is the function with coefficients for each term being the parameters to optimize. The error at each point is evaluated with the square of the difference between the model and the true data. The mean of the squared differences are then rooted for finding the least-squares error. This least-squares error is minimized through various solutions of the model, which give various errors at each point.
+  
+Finding the optimal solution through minimizing least-square error has many different options in Python. In Python, the ```np.minimize()``` function can be used to specify the objective function and the parameters to be optimized. By default, the minimize function selects the solver for optimization to be ```BFGS```, which uses the first derivatives only to find the minimized result.
 
-
+The result is a function that has been fitted to the data. In other words, the function is a model that has been trained on the training data. The goal of the model is to be able to predict values given new points of data, which is the purpose of a test dataset. The model is calculated on the new data points of a test dataset using the parameters from training. To evaluate the model, the error between the model's expected value and the true value at each data point is found with the same method as before in training. This method was to square-root the average of the squared difference between the expected and true data values to produce a single scalar to represent the error of the model across all data points.
+  
 ## Algorithm Implementation and Development
-The procedure is discussed in this section. For the results, see <a href="#Computational Results">Computational Results</a>
+The procedure is discussed in this section. For the results, see <a href="##Computational Results">Computational Results</a>
 
 The given data for this assignment is below, which is used in all four problems.
 ```
@@ -116,7 +131,8 @@ Again, the functions for the line and parabola were used to optimize the paramet
 ## Computational Results
 ### Problem 1
 The cosine model roughly appears to follow the given data as the returned optimized parameters were substituted into the cosine function and a graph is generated (Fig. 3)
-<p><img src="https://media.discordapp.net/attachments/847715688273281034/1093804058076270592/zyCXKlaN169YEBgayePFiq0MTERdT15KIeJSEhAQmTpzIzJkzCQgIwMvLi5kzZ7J69WomT55sdXgi4mJqkRERERGPpRYZERER8VhKZERERMRjKZERERERj6VERkRERDyWEhkRERHxWEpkRERExGMpkRERERGPpURGREREPJYSGREREfFYSmRERETEYymREREREYlREZEREQ81v8DGuq7Z2zupEAAAAAASUVORK5CYII.png" width=400></p>
+
+<p><img src="https://media.discordapp.net/attachments/847715688273281034/1094006656112807977/AxmDu22AYVLgAAAAAElFTkSuQmCC.png" width=400></p>
 
 > Fig. 3. Least-Squares Fit with Cosine Function
 
@@ -139,7 +155,7 @@ The minimum of the error for each combination is found along the dark blue regio
 ### Problem 3
 Using the first 20 data points used as training data, the line, parabola, and 19th degree polynomial were fitted to this data. The results of the training are illlustrated on the left of Fig. 5, with the same model used on all data points, including the test dataset, on the right.
 
-<p><img src="https://media.discordapp.net/attachments/847715688273281034/1093809017899450449/sXQAAAABJRU5ErkJggg.png" width=400</img><img src="https://media.discordapp.net/attachments/847715688273281034/1093809617651380244/TxEulk3tnEnwAAAABJRU5ErkJggg.png" width=400</img></p>
+<p><img src="https://media.discordapp.net/attachments/847715688273281034/1094006656318308392/sEBERkaax7BAREZGmsewQERGRprHsEBERkaax7BAREZGmsewQERGRprHsEBERkaax7BAREZGmsewQERGRprHsEBERkaax7BAREZGmsewQERGRpv0PjZCgVPVnYDQAAAAASUVORK5CYII.png" width=400</img><img src="https://media.discordapp.net/attachments/847715688273281034/1094006656607719454/ATZ152xLQpccAAAAAElFTkSuQmCC.png" width=400</img></p>
 
 > Fig. 5. Model fits on training dataset and then demonstrated on test dataset
 
@@ -160,7 +176,7 @@ Test: 28626352734.190914
 
 ### Problem 4
 The process for problem 3 is repeated. Fig. 6 illustrates the function fitted to the training data points on the left, and then the trained model on the right with test data points.
-<p><img src="https://media.discordapp.net/attachments/847715688273281034/1093809847406956635/t73ucAgG2Cv3giBQX09fUVDw8P0el0otlsxmg0it1uF7e3t3mfBkBJ2SY4J6SggAaDQUyn09hut1Gr1aLf70ej0YjX19e8TwOgpGwTnPPXPiiY5XIZo9EoJpNJ1Ov1qFQqMZlMYrVaxXg8zvs8AErINsFvnkgBAAAk8kQKAAAgkZACAABIJKQAAAASCSkAAIBEQgoAACCRkAIAAEgkpAAAABIJKQAAgERCCgAAIJGQAgAASCSkAAAAEn0DLiAINDiuCucAAAAASUVORK5CYII.png" width=800</img></p>
+<p><img src="https://media.discordapp.net/attachments/847715688273281034/1094023242680893491/gBvmQc1uEWtHQAAAABJRU5ErkJggg.png?width=720&height=398" width=800</img></p>
 
 > Fig. 6. Model Fits on Training and Test Data
 
@@ -181,5 +197,7 @@ Test: 507.47660243516526
 
 ## Summary and Conclusions
 The cosine function, a line, parabola, and 19th degree polynomial were fitted to the data given. Fitting was done by minimizing the least-squares error when changing the parameters for each term of the function. Training was done on various sections of the data given, and the rest of the data was used for testing.
-For the 2D loss landscape, as mentioned above, the minima can be observed by the dark blue region. As there are 31x31 errors calculated since there were 31 different values for the each of the two swept parameters, with one absolute minimum, but definitely a range of values that are within the dark blue region. While fixing most variables gives one distinct region being the minimum, fixing C and D gives a larger range of dark blue, with some lighter shades in between, meaning there are more minimums. Based on my swept values for the parameters, there seem to be three. Otherwise, there is one distinct region for each combination that is a minimum
-For applying the model on the test data in the last two problems, using the first 10 and last 10 data points as training data with the middle 10 used as testing, the minimized error for each function has reduced. For the polynomial, by a lot. Each model has paramaters that are optimized closer to the raw data as the error returned a lesser value than before, when only the first 20 data points made up the training dataset.
+
+For the 2D loss landscape, the minima can be observed by the dark blue region. As there are 31x31 errors calculated since there were 31 different values for the each of the two swept parameters with one absolute minimum. While fixing most variables gives one distinct region being the minimum, fixing C and D gives a larger range of dark blue, with some lighter shades in between, meaning there are more minimums. Based on my swept values for the parameters, there seem to be three minima. Otherwise in the other combinations, there is one distinct region that surrounds the minimum.
+
+For applying the model on the test data in the last two problems, using the first 10 and last 10 data points as training data with the middle 10 used as testing, the minimized error for each function has reduced. For the polynomial, by a lot. Each model has parameters that are optimized closer to the raw data as the error returned a lesser value than before, when only the first 20 data points made up the training dataset. This is likely due to the model being shaped to both the beginning and end points and therefore being more controlled throughout all datapoints instead of just being limited by the first few data points.
