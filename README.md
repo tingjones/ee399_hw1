@@ -1,6 +1,6 @@
 
-<h1><br>Introduction to Curve Fitting<br></h1>
-<h2>• EE 399 • SP 23 • Ting Jones</h2>
+# Introduction to Curve Fitting
+## • EE 399 • SP 23 • Ting Jones</h2>
 
 ## Abstract
 The first assignment for EE 399, Introduction to Machine Learning for Science and Engineering, involves fitting various models onto the given raw data. Models are optimized through minimizing the least-squares error:
@@ -9,22 +9,35 @@ The first assignment for EE 399, Introduction to Machine Learning for Science an
 
 > Fig. 1. Least-Squares Error Equation
 
-Functions include the cosine wave, a line, a parabola, and a 19th degree polynomial, which include parameters that are minimized on the training data to attempt to model the test data. See <a id="computational-results">Computational Results</a> for the outcome.
+Functions include the cosine wave, a line, a parabola, and a 19th degree polynomial, which include parameters that are minimized on the training data to attempt to model the test data.
 
 ## Table of Contents
-<p> •&emsp;<a id="#introduction-and-overview">Introduction and Overview</a></p>
-<p> •&emsp;<a id="theoretical-background">Theoretical Background</a></p>
-<p> •&emsp;<a id="algorithm-implementation-and-development">Algorithm Implementation and Development</a></p>
-<p> &emsp;•&emsp;<a id="problem-1">Problem 1</a><br>
-&emsp;•&emsp;<a id="problem-2">Problem 2</a><br>
-&emsp;•&emsp;<a id="problem-3">Problem 3</a><br>
-  &emsp;•&emsp;<a id="problem-4">Problem 4</a></p>
-<p>•&emsp;<a id="computational-results">Computational Results</a></p>
-<p> &emsp;•&emsp;<a id="problem-1-1">Problem 1</a><br>
-&emsp;•&emsp;<a id="problem-2-1">Problem 2</a><br>
-&emsp;•&emsp;<a id="problem-3-1">Problem 3</a><br>
-&emsp;•&emsp;<a id="problem-4-1">Problem 4</a></p>
-<p>•&emsp;<a id="summary-and-conclusions">Summary and Conclusions</a></p>
+•&emsp;[Introduction and Overview](#introduction-and-overview)
+
+•&emsp;[Theoretical Background](#theoretical-background)
+
+•&emsp;[Algorithm Implementation and Development](#algorithm-implementation-and-development)
+
+
+&emsp;•&emsp;[Problem 1](#problem-1)
+
+&emsp;•&emsp;[Problem 2](#problem-2)
+
+&emsp;•&emsp;[Problem 3](#problem-3)
+
+&emsp;•&emsp;[Problem 4](#problem-4)
+  
+•&emsp;[Computational Results](#computational-results)
+
+&emsp;•&emsp;[Problem 1](#problem-1-1)
+
+&emsp;•&emsp;[Problem 2](#problem-2-1)
+
+&emsp;•&emsp;[Problem 3](#problem-3-1)
+
+&emsp;•&emsp;[Problem 4](#problem-4-1)
+
+•&emsp;[Summary and Conclusions](#summary-and-conclusions)
 
 ## Introduction and Overview
 To attempt describing any given data, a model is built on trained data by minimizing the difference, or error, between the model and the training data. After training, the model is implemented on the test dataset to see if it can closely predict the values for the given data. Results are dependent on the size of the dataset, the initial prediction of the value of the optimal parameters for the model, and other factors.
@@ -41,7 +54,7 @@ Finding the optimal solution through minimizing least-square error has many diff
 The result is a function that has been fitted to the data. In other words, the function is a model that has been trained on the training data. The goal of the model is to be able to predict values given new points of data, which is the purpose of a test dataset. The model is calculated on the new data points of a test dataset using the parameters from training. To evaluate the model, the error between the model's expected value and the true value at each data point is found with the same method as before in training. This method was to square-root the average of the squared difference between the expected and true data values to produce a single scalar to represent the error of the model across all data points.
   
 ## Algorithm Implementation and Development
-The procedure is discussed in this section. For the results, see <a id="computational-results">Computational Results</a>.
+The procedure is discussed in this section. For the results, see [Computational Results](#computational-results).
 
 The given data for this assignment is below, which is used in all four problems.
 ```
@@ -129,8 +142,8 @@ Here, the process from problem 3 is repeated, but with the first and last 10 dat
 
 Again, the functions for the line and parabola were used to optimize the parameters based on the training data, returning the error. The polynomial was fitted using the ```polyfit``` function, and evaluated at each data poitn with ```polyval```. Parameters found by optimization are used to evaluate the model on the test dataset.
 
-## Computational Results
-### Problem 1
+# Computational Results
+## Problem 1
 The cosine model roughly appears to follow the given data as the returned optimized parameters were substituted into the cosine function and a graph is generated (Fig. 3)
 
 <p><img src="https://media.discordapp.net/attachments/847715688273281034/1094006656112807977/AxmDu22AYVLgAAAAAElFTkSuQmCC.png" width=400></p>
