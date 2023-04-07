@@ -8,22 +8,23 @@ The first assignment for EE 399, Introduction to Machine Learning for Science an
 ![image](https://user-images.githubusercontent.com/114551272/230678046-6a0682ff-4d52-4754-8a12-ee6c3f4e46ee.png)
 
 > Fig. 1. Least-Squares Error Equation
-Functions include the cosine wave, a line, a parabola, and a 19th degree polynomial, which include parameters that are minimized on the training data to attempt to model the test data. See <a href="##Computational Results">Computational Results</a> for the outcome.
 
-<h3>Table of Contents</h3>
-<p> •&emsp;<a href="##Introduction and Overview">Introduction and Overview</a></p>
-<p> •&emsp;<a href="##Theoretical Background">Theoretical Background</a></p>
-<p> •&emsp;<a href="##Algorithm Implementation and Development">Algorithm Implementation and Development</a></p>
-<p> &emsp;•&emsp;<a href="###Problem 1">Problem 1</a><br>
-&emsp;•&emsp;<a href="###Problem 1">Problem 2</a><br>
-&emsp;•&emsp;<a href="###Problem 1">Problem 3</a><br>
-  &emsp;•&emsp;<a href="###Problem 1">Problem 4</a></p>
-<p>•&emsp;<a href="##Computational Results">Computational Results</a></p>
-<p> &emsp;•&emsp;<a href="###Problem 1-1">Problem 1</a><br>
-&emsp;•&emsp;<a href="###Problem 2-1">Problem 2</a><br>
-&emsp;•&emsp;<a href="###Problem 3-1">Problem 3</a><br>
-&emsp;•&emsp;<a href="###Problem 4-1">Problem 4</a></p>
-<p>•&emsp;<a href="##Summary and Conclusions">Summary and Conclusions</a></p>
+Functions include the cosine wave, a line, a parabola, and a 19th degree polynomial, which include parameters that are minimized on the training data to attempt to model the test data. See <a id="computational-results">Computational Results</a> for the outcome.
+
+## Table of Contents
+<p> •&emsp;<a id="#introduction-and-overview">Introduction and Overview</a></p>
+<p> •&emsp;<a id="theoretical-background">Theoretical Background</a></p>
+<p> •&emsp;<a id="algorithm-implementation-and-development">Algorithm Implementation and Development</a></p>
+<p> &emsp;•&emsp;<a id="problem-1">Problem 1</a><br>
+&emsp;•&emsp;<a id="problem-2">Problem 2</a><br>
+&emsp;•&emsp;<a id="problem-3">Problem 3</a><br>
+  &emsp;•&emsp;<a id="problem-4">Problem 4</a></p>
+<p>•&emsp;<a id="computational-results">Computational Results</a></p>
+<p> &emsp;•&emsp;<a id="problem-1-1">Problem 1</a><br>
+&emsp;•&emsp;<a id="problem-2-1">Problem 2</a><br>
+&emsp;•&emsp;<a id="problem-3-1">Problem 3</a><br>
+&emsp;•&emsp;<a id="problem-4-1">Problem 4</a></p>
+<p>•&emsp;<a id="summary-and-conclusions">Summary and Conclusions</a></p>
 
 ## Introduction and Overview
 To attempt describing any given data, a model is built on trained data by minimizing the difference, or error, between the model and the training data. After training, the model is implemented on the test dataset to see if it can closely predict the values for the given data. Results are dependent on the size of the dataset, the initial prediction of the value of the optimal parameters for the model, and other factors.
@@ -40,7 +41,7 @@ Finding the optimal solution through minimizing least-square error has many diff
 The result is a function that has been fitted to the data. In other words, the function is a model that has been trained on the training data. The goal of the model is to be able to predict values given new points of data, which is the purpose of a test dataset. The model is calculated on the new data points of a test dataset using the parameters from training. To evaluate the model, the error between the model's expected value and the true value at each data point is found with the same method as before in training. This method was to square-root the average of the squared difference between the expected and true data values to produce a single scalar to represent the error of the model across all data points.
   
 ## Algorithm Implementation and Development
-The procedure is discussed in this section. For the results, see <a href="##Computational Results">Computational Results</a>
+The procedure is discussed in this section. For the results, see <a id="computational-results">Computational Results</a>.
 
 The given data for this assignment is below, which is used in all four problems.
 ```
