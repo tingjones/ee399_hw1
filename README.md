@@ -24,8 +24,6 @@ In this assignment, the models were optimized through minimizing the least-squar
 ## Theoretical Background
 
 
-> **Note**
-
 ## Algorithm Implementation and Development
 The procedure is discussed in this section. For the results, see <a href="#Computational Results">Computational Results</a>
 
@@ -182,4 +180,6 @@ Test: 507.47660243516526
 ```
 
 ## Summary and Conclusions
-...
+The cosine function, a line, parabola, and 19th degree polynomial were fitted to the data given. Fitting was done by minimizing the least-squares error when changing the parameters for each term of the function. Training was done on various sections of the data given, and the rest of the data was used for testing.
+For the 2D loss landscape, as mentioned above, the minima can be observed by the dark blue region. As there are 31x31 errors calculated since there were 31 different values for the each of the two swept parameters, with one absolute minimum, but definitely a range of values that are within the dark blue region. While fixing most variables gives one distinct region being the minimum, fixing C and D gives a larger range of dark blue, with some lighter shades in between, meaning there are more minimums. Based on my swept values for the parameters, there seem to be three. Otherwise, there is one distinct region for each combination that is a minimum
+For applying the model on the test data in the last two problems, using the first 10 and last 10 data points as training data with the middle 10 used as testing, the minimized error for each function has reduced. For the polynomial, by a lot. Each model has paramaters that are optimized closer to the raw data as the error returned a lesser value than before, when only the first 20 data points made up the training dataset.
