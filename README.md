@@ -1,11 +1,11 @@
 
 # Introduction to Curve Fitting
-## • EE 399 • SP 23 • Ting Jones</h2>
+## • EE 399 • SP 23 • Ting Jones •
 
 ## Abstract
 The first assignment for EE 399, Introduction to Machine Learning for Science and Engineering, involves fitting various models onto the given raw data. Models are optimized through minimizing the least-squares error:
 
-![image](https://user-images.githubusercontent.com/114551272/230678046-6a0682ff-4d52-4754-8a12-ee6c3f4e46ee.png)
+![Least-Squares Error Equation](https://user-images.githubusercontent.com/114551272/230678046-6a0682ff-4d52-4754-8a12-ee6c3f4e46ee.png)
 
 > Fig. 1. Least-Squares Error Equation
 
@@ -47,7 +47,9 @@ In this assignment, the models were optimized through minimizing the least-squar
 Models were made from the functions for the cosine wave, a line, a parabola, and a 19th degree polynomial. Each term had a coefficient, or parameter, that was calculated to give the least-squares error for the training data.
 
 ## Theoretical Background
-The Least-Squares fitting method uses a function to describe a trend by minimizing the sum-square error between the objective function and the data. The model is the function with coefficients for each term being the parameters to optimize. The error at each point is evaluated with the square of the difference between the model and the true data. The mean of the squared differences are then rooted for finding the least-squares error. This least-squares error is minimized through various solutions of the model, which give various errors at each point.
+Machine learning involves optimizing parameters of a function to achieve the minimized result of some variable. This variable can be distance, error, or other quantities.
+
+The Least-Squares fitting method is a machine learning algorithm that uses a function to describe a trend by minimizing the sum-square error between the objective function and the data. The model is the function with coefficients for each term being the parameters to optimize. The error at each point is evaluated with the square of the difference between the model and the true data. The mean of the squared differences are then rooted for finding the least-squares error. This least-squares error is minimized through various solutions of the model, which give various errors at each point.
   
 Finding the optimal solution through minimizing least-square error has many different options in Python. In Python, the ```np.minimize()``` function can be used to specify the objective function and the parameters to be optimized. By default, the minimize function selects the solver for optimization to be ```BFGS```, which uses the first derivatives only to find the minimized result.
 
@@ -66,7 +68,7 @@ y = np.array([30, 35, 33, 32, 34, 37, 39, 38, 36, 36, 37, 39, 42, 45, 45, 41,
 ### Problem 1
 The minimum error for the cosine function (Fig. 2) was found by defining a function that evaluates the error of the function at each point of given data.
 
-![image](https://user-images.githubusercontent.com/114551272/230567103-a3a254bb-7c5f-477e-9e71-94e4189d37ce.png)
+![Cosine function](https://user-images.githubusercontent.com/114551272/230567103-a3a254bb-7c5f-477e-9e71-94e4189d37ce.png)
 > Fig. 2. Cosine Function
 
 This function was sent through the scipy minimize function, where parameters A, B, C, and D are returned for a minimum error value.
@@ -161,10 +163,12 @@ with an error of: ```1.592725853040056```
 
 ### Problem 2
 There are six possible combinations (without repeats) for fixing two and sweeping two parameters and calculating the resulting error, being AB, AC, AD, BC, BD, CD. The 2D error landscape for these combinations are illustrated in Fig. 4.
-![v5Q9UBwNYi8xAsNHAIqHPnzmlpaUkvXrxY9W99fX3KycnR8PCw0tLSDFQHAFuLzEOw0MABAADYDHvgAAAAbIYGDgAAwGZo4AAAAGyGBg4AAMBmaOAAAABshgYOAADAZmjgAAAAbIYGDgAAwGZo4AAAAGyGBg4AAMBmaOAAAABshgYOAADAZv4LozTcM8lbT6oAAAAASUVORK5CYII](https://user-images.githubusercontent.com/114551272/230568691-3ad852b1-0d53-4986-a690-21b72795a070.png)
+
+![2D Loss Landscape](https://media.discordapp.net/attachments/847715688273281034/1095194497257836634/wEicF3DGb3nYgAAAABJRU5ErkJggg.png?width%3D703%26height%3D704)
+
 > Fig. 4. 2D Loss Landscape for Combinations of Fixed and Swept Parameters
 
-The minimum of the error for each combination is found along the dark blue region, therefore related to specific regions of the swept parameters for each of the fixed parameters.
+The minimum of the error for each combination is found with the bright yellow region. Note the logarithmic scale, which makes the differences between error values that are small more exaggerated than differences between errors of very large values. This makes it easier to see the minima for the errors across the 2D landscape.
 
 ### Problem 3
 Using the first 20 data points used as training data, the line, parabola, and 19th degree polynomial were fitted to this data. The results of the training are illlustrated on the left of Fig. 5, with the same model used on all data points, including the test dataset, on the right.
@@ -212,6 +216,14 @@ Test: 507.47660243516526
 ## Summary and Conclusions
 The cosine function, a line, parabola, and 19th degree polynomial were fitted to the data given. Fitting was done by minimizing the least-squares error when changing the parameters for each term of the function. Training was done on various sections of the data given, and the rest of the data was used for testing.
 
-For the 2D loss landscape, the minima can be observed by the dark blue region. As there are 31x31 errors calculated since there were 31 different values for the each of the two swept parameters with one absolute minimum. While fixing most variables gives one distinct region being the minimum, fixing C and D gives a larger range of dark blue, with some lighter shades in between, meaning there are more minimums. Based on my swept values for the parameters, there seem to be three minima. Otherwise in the other combinations, there is one distinct region that surrounds the minimum.
+For the 2D loss landscape, the minima can be observed by the bright yelow region. 
+
+By visualizing results on a logarithmic scale, the differences between very small errors is accentuated, as larger error values are more flattened. Therefore, viewing each plot and visually trying to identify the brightest regions separated by darker regions within the range I have selected:
+* Fixing AB seems to have two minima
+* Fixing AC seems to have four very distinct minima, with maybe six total due to some faint blue in between
+* Fixing AD has a very solid yellow bar, so the minima seems to be across a line
+* Fixing BC has one minima, as it is surrounded by darker regions
+* Fixing BD also has a very solid yellow bar, so the minima seems to be across a line
+* Fixing CD appears to have four minima as the lighter yellow in between stays consistent, meaning the error is consistent and is not actively going downhill until approaching the four minima at the edges.
 
 For applying the model on the test data in the last two problems, using the first 10 and last 10 data points as training data with the middle 10 used as testing, the minimized error for each function has reduced. For the polynomial, by a lot. Each model has parameters that are optimized closer to the raw data as the error returned a lesser value than before, when only the first 20 data points made up the training dataset. This is likely due to the model being shaped to both the beginning and end points and therefore being more controlled throughout all datapoints instead of just being limited by the first few data points.
